@@ -21,7 +21,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- EXTRA CSS FOR HEADER BRAND -->
+  <!-- HEADER BASIC STYLE -->
   <style>
     .header {
       display: flex;
@@ -32,11 +32,19 @@
     }
 
     .brand-text {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 700;
       letter-spacing: 3px;
       color: #ffffff;
       font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .nav a {
+      margin: 0 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
     }
 
     .cta {
@@ -48,49 +56,55 @@
       text-decoration: none;
       font-size: 14px;
     }
-
-    .cta:hover {
-      background: #16a34a;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER / NAVBAR -->
   <header class="header">
     <div class="brand-text">RAHI</div>
-
     <a class="cta" href="https://wa.me/919277405966">
       Book on WhatsApp
     </a>
   </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
+  <div>
+<nav class="nav-strip">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+</nav>
+</div>
+  <!-- HERO -->
+  <section id="home" class="hero">
     <h1>Ride chahiye apno jaisi?</h1>
-    <p>
-      Local • Trusted • Safe rides for families & institutions
-    </p>
-
-    <a class="cta big" href="https://wa.me/919277405966">
+    <p>Local • Trusted • Safe rides for families & institution</p>
       🚕 Book Ride on WhatsApp
     </a>
   </section>
 
+  <!-- SERVICES (ANCHOR TARGET) -->
+  <section id="services">
+    <!-- future content -->
+  </section>
 
-
-
-
-
-
-
-  
   <!-- TRUST STRIP -->
   <section class="trust">
-    <div>✔ Verified Local Drivers</div>
-    <div>✔ Transparent Fare</div>
-    <div>✔ Family & Institution Friendly</div>
+    <div class="trust-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="trust-info">
+      <span>📍 Hari Nagar, Lucknow</span>
+      <span>📞 9277405966</span>
+    </div>
+  </section>
+
+  <!-- CONTACT (ANCHOR TARGET) -->
+  <section id="contact">
+    <!-- future content -->
   </section>
 
   <!-- FOOTER -->
