@@ -85,7 +85,67 @@ body {
   font-size: 16px;
   padding: 12px 20px;
 }
+:root{
+  --teal:#0F766E;
+  --orange:#F97316;
+  --whatsapp:#22C55E;
+  --bg:#F8FAFC;
+  --text:#1F2933;
+}
 
+body{
+  margin:0;
+  font-family:system-ui,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.hero{
+  padding:50px 16px;
+  text-align:center;
+  background:linear-gradient(180deg,#e6f4f1,#fff);
+}
+
+.hero h1{
+  font-size:30px;
+  color:var(--teal);
+}
+.hero h1 span{color:var(--orange);}
+
+.hero p{
+  margin-bottom:24px;
+}
+
+.form-box{
+  max-width:420px;
+  margin:0 auto;
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  text-align:left;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #d1d5db;
+  font-size:15px;
+}
+
+button{
+  width:100%;
+  background:var(--whatsapp);
+  color:#fff;
+  border:none;
+  padding:14px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
 /* TRUST STRIP */
 .trust {
   background: #e6f4f1; /* exact match with nav strip */

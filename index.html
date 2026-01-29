@@ -56,6 +56,28 @@
       text-decoration: none;
       font-size: 14px;
     }
+
+    .form-box input, .form-box textarea {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .form-box button {
+      cursor: pointer;
+      width: 100%;
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -68,19 +90,48 @@
       Book on WhatsApp
     </a>
   </header>
-  <div>
-<nav class="nav-strip">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-</nav>
-</div>
+
+  <nav class="nav-strip">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <!-- HERO -->
-  <section id="home" class="hero">
-    <h1>Ride chahiye apno jaisi?</h1>
-    <p>Local • Trusted • Safe rides for families & institution</p>
-      🚕 Book Ride on WhatsApp
-    </a>
+  <section class="hero" id="home">
+
+    <h1>Ride chahiye <span>apno jaisi?</span></h1>
+    <p>Local • Trusted • Safe rides for families & institutions</p>
+
+    <!-- ✅ FORM WRAPPER (important for success screen) -->
+    <div class="form-box" id="rideForm">
+
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="tel" id="mobile" placeholder="Mobile Number">
+      <input type="text" id="pickup" placeholder="Pickup Location">
+      <input type="text" id="drop" placeholder="Drop Location">
+
+      <textarea
+        id="note"
+        placeholder="Note: No. of passengers, Gender (optional)"
+        rows="3"></textarea>
+
+      <!-- ✅ BUTTON ID added -->
+      <button id="submitBtn" 
+        type="button"
+        onclick="submitRide()">
+        🚕 submit ride request 
+      </button>
+
+    </div>
+
+    <!-- ✅ SUCCESS SCREEN -->
+    <div id="successBox" style="display:none; text-align:center; margin-top:30px;">
+      <h3>✅ Ride Request Sent</h3>
+      <p>Thank you! Driver will contact you shortly.</p>
+      <p>Redirecting to WhatsApp…</p>
+    </div>
+
   </section>
 
   <!-- SERVICES (ANCHOR TARGET) -->
@@ -113,5 +164,6 @@
     <small>© 2026 Rahi • Made for Local India 🇮🇳</small>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
