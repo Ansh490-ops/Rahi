@@ -89,3 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
+function openLocation() {
+  window.open(
+    "https://www.google.com/maps?q=Hari+Om+Nagar+Krishna+Nagar+Lucknow+UP",
+    "_blank"
+  );
+}
+function callNow() {
+  window.open("tel:+919277405966", "_self");
+}
+function openWhatsApp() {
+  const phone = "919277405966";
+  const message =
+    "Hello 👋%0A%0AI want to contact you.%0ALocation: Hari Om Nagar, Krishna Nagar, Lucknow";
+
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
