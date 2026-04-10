@@ -19,17 +19,15 @@ function submitRide() {
     }
 
     // WhatsApp message banao
-    const message = `🚕 *Ride Request*\n\n*Name:* ${name}\n*Mobile:* ${mobile}\n*Pickup:* ${pickup}\n*Drop:* ${drop}\n*Note:* ${note}`;
+    const message = `🚕 Ride Request\n\nName: ${name}\nMobile: ${mobile}\nPickup: ${pickup}\nDrop: ${drop}\nNote: ${note}`;
 
-    // WhatsApp URL
+    // WhatsApp URL - direct redirect
     const whatsappURL = `https://wa.me/919277405966?text=${encodeURIComponent(message)}`;
 
     // Success screen dikhaao
     document.getElementById("rideForm").style.display = "none";
     document.getElementById("successBox").style.display = "block";
 
-    // 2 seconds baad WhatsApp par redirect karo
-    setTimeout(() => {
-        window.open(whatsappURL, "_blank");
-    }, 2000);
+    // Immediately WhatsApp par redirect karo
+    window.location.href = whatsappURL;
 }
