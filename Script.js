@@ -18,5 +18,12 @@ function generateWhatsAppLink() {
     }
 }
 
-// Call the function to integrate with WhatApp
-generateWhatsAppLink();
+// Function for "View Map" button
+function openLocation() {
+    generateWhatsAppLink();
+}
+
+// Function for "Chat Now" button
+function openWhatsApp() {
+    generateWhatsAppLink();
+}
