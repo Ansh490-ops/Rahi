@@ -12,39 +12,61 @@ function submitRide() {
     return;
   }
 
-  // ✅ Disable button + UX
   const btn = document.getElementById("submitBtn");
-  btn.innerText = "Processing...";
+  btn.innerText = "Getting Location...";
   btn.disabled = true;
 
-  // ✅ Show success screen instantly
-  document.getElementById("rideForm").style.display = "none";
-  document.getElementById("successBox").style.display = "block";
+  let sent = false;
 
-  // 📍 Default location text (fast fallback)
-  let locationLink = "Location not available";
-
-  // ⚡ Send immediately (no delay waiting for GPS)
-  sendToWhatsApp(name, mobile, pickup, drop, note, locationLink);
-
-  // 📍 Try to get real location in background (max 2 sec)
+  // 📍 Try getting location (max 4 sec)
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
+        if (sent) return;
+
         const lat = position.coords.latitude;
         const long = position.coords.longitude;
+        const link = `https://www.google.com/maps?q=${lat},${long}`;
 
-        const liveLink = `https://www.google.com/maps?q=${lat},${long}`;
-
-        // 👉 Optional: console log (future use)
-        console.log("Live Location:", liveLink);
+        sent = true;
+        showSuccessAndSend(name, mobile, pickup, drop, note, link);
       },
+
       function () {
-        console.log("Location permission denied");
+        if (!sent) {
+          sent = true;
+          showSuccessAndSend(name, mobile, pickup, drop, note, "Location not shared");
+        }
       },
-      { timeout: 2000 }
+
+      {
+        enableHighAccuracy: true,
+        timeout: 4000
+      }
     );
+
+    // ⏱ Backup after 4 sec
+    setTimeout(() => {
+      if (!sent) {
+        sent = true;
+        showSuccessAndSend(name, mobile, pickup, drop, note, "Location not available");
+      }
+    }, 4000);
+
+  } else {
+    showSuccessAndSend(name, mobile, pickup, drop, note, "Location not supported");
   }
+}
+
+// ✅ Show success → then WhatsApp
+function showSuccessAndSend(name, mobile, pickup, drop, note, locationLink) {
+
+  document.getElementById("rideForm").style.display = "none";
+  document.getElementById("successBox").style.display = "block";
+
+  setTimeout(() => {
+    sendToWhatsApp(name, mobile, pickup, drop, note, locationLink);
+  }, 800);
 }
 
 // 📲 WhatsApp sender
@@ -62,13 +84,9 @@ function sendToWhatsApp(name, mobile, pickup, drop, note, locationLink) {
 ${locationLink}`;
 
   const encoded = encodeURIComponent(message);
-
-  const phoneNumber = "919277405966"; // 👈 change if needed
+  const phoneNumber = "919277405966";
 
   const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
 
-  // ⏱ Smooth UX delay (1 sec)
-  setTimeout(() => {
-    window.location.href = url;
-  }, 1000);
+  window.location.href = url;
 }
