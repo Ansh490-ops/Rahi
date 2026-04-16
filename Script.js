@@ -18,7 +18,7 @@ function submitRide() {
 
   let sent = false;
 
-  // 📍 Try getting location (max 4 sec)
+  // 📍 Location fetch
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
@@ -45,7 +45,7 @@ function submitRide() {
       }
     );
 
-    // ⏱ Backup after 4 sec
+    // ⏱ Backup
     setTimeout(() => {
       if (!sent) {
         sent = true;
@@ -58,16 +58,36 @@ function submitRide() {
   }
 }
 
-// ✅ Show success → then WhatsApp
+
+// ✅ MAIN FLOW (Sheet → WhatsApp)
 function showSuccessAndSend(name, mobile, pickup, drop, note, locationLink) {
 
   document.getElementById("rideForm").style.display = "none";
   document.getElementById("successBox").style.display = "block";
 
+  // ✅ STEP 1: Send to Google Sheet
+  fetch("https://script.google.com/macros/s/AKfycbzsFOw5L8Xnchu090iOwtnQpZUjVC5HZV4p7DQCf2mEU0mLRx8JWzW5NSx1XI5a6gM5_g/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      mobile: mobile,
+      pickup: pickup,
+      drop: drop,
+      note: note,
+      location: locationLink
+    })
+  });
+
+  // ✅ STEP 2: WhatsApp after slight delay
   setTimeout(() => {
     sendToWhatsApp(name, mobile, pickup, drop, note, locationLink);
-  }, 800);
+  }, 1200);
 }
+
 
 // 📲 WhatsApp sender
 function sendToWhatsApp(name, mobile, pickup, drop, note, locationLink) {
@@ -80,7 +100,7 @@ function sendToWhatsApp(name, mobile, pickup, drop, note, locationLink) {
 📍 Drop: ${drop}
 📝 Note: ${note}
 
-📌 Live Location (Tap to open):
+📌 Live Location:
 ${locationLink}`;
 
   const encoded = encodeURIComponent(message);
