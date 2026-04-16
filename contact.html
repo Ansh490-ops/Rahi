@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <!-- BASIC -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TITLE -->
   <title>Rahi – Safe Local Ride Service for Families & Institutions</title>
 
-  <!-- META -->
   <meta name="description"
     content="Rahi provides safe, trusted local ride services for families, schools, hospitals and institutions. Book rides easily on WhatsApp with verified local drivers.">
 
-  <meta name="keywords"
-    content="local ride service, safe rides for families, school transport service, hospital transport, whatsapp ride booking, local drivers">
-
-  <meta name="author" content="Rahi Transport">
-  <meta name="robots" content="index, follow">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- HEADER BASIC STYLE -->
   <style>
     .header {
       display: flex;
@@ -36,15 +25,6 @@
       font-weight: 700;
       letter-spacing: 3px;
       color: #ffffff;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-    }
-
-    .nav a {
-      margin: 0 10px;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
     }
 
     .cta {
@@ -52,101 +32,85 @@
       color: #ffffff;
       padding: 10px 16px;
       border-radius: 999px;
-      font-weight: 600;
       text-decoration: none;
-      font-size: 14px;
-    }
-
-    .form-box input, .form-box textarea {
-      display: block;
-      width: 100%;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    .form-box button {
-      cursor: pointer;
-      width: 100%;
-      background: #22c55e;
-      color: white;
-      border: none;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
-      margin-top: 10px;
     }
   </style>
 </head>
+
 <body>
-  <!-- HEADER / NAVBAR -->
-  <header class="header">
-    <div class="brand-text">RAHI</div>
-    <a class="cta" href="https://wa.me/919277405966"> Book on WhatsApp</a>
-  </header>
-  <nav class="nav-strip">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <!-- HERO -->
+
+<header class="header">
+  <div class="brand-text">RAHI</div>
+  <a class="cta" href="https://wa.me/919277405966">Book on WhatsApp</a>
+</header>
+
 <section class="hero-card">
-  <p>
+
+<p>
 We value clear communication and quick support. If you have any questions, feedback,
-or service-related inquiries, don’t hesitate to contact us. Our team is always ready
-to assist you and provide the best possible solutions.
+or service-related inquiries, don’t hesitate to contact us.
 </p>
-  <div class="hero-content">
-    <h1>Get in Touch</h1>
-    <p>Fast & easy ways to contact us</p>
-    <div class="hero-cards">
-      <!-- LOCATION -->
-      <div class="hero-card">
-        <span>📍</span>
-        <h3>Visit Us</h3>
-        <p>Hari Om Nagar, Krishna Nagar,<br>Lucknow, UP</p>
-        <button onclick="openLocation()">View Map</button>
-      </div>
-      <!-- CALL -->
-      <div class="hero-card">
-        <span>📞</span>
-        <h3>Call Us on +919277405966</h3>
-        <p>Speak directly with us</p>
-      </div>
 
-      <!-- WHATSAPP -->
-      <div class="hero-card">
-        <span>💬</span>
-        <h3>WhatsApp</h3>
-        <p>Chat instantly on WhatsApp</p>
-        <button onclick="openWhatsApp()">Chat Now</button>
-      </div>
+<h1>Get in Touch</h1>
+<p>Fast & easy ways to contact us</p>
 
-    </div>
+<div class="hero-cards">
+
+  <!-- LOCATION -->
+  <div class="hero-card">
+    <span>📍</span>
+    <h3>Visit Us</h3>
+    <p>Hari Om Nagar, Krishna Nagar,<br>Lucknow, UP</p>
+
+    <button onclick="openLocation()" style="margin-top:10px;padding:10px;background:#0d9488;color:#fff;border:none;border-radius:8px;">
+      View Map
+    </button>
+  </div>
+
+  <!-- CALL -->
+  <div class="hero-card">
+    <span>📞</span>
+    <h3>Call Us on +919277405966</h3>
+    <p>Speak directly with us</p>
+
+    <!-- ✅ ADDED BUTTON -->
+    <button onclick="callNow()" style="margin-top:10px;padding:10px;background:#22c55e;color:#fff;border:none;border-radius:8px;">
+      Call Now
+    </button>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="hero-card">
+    <span>💬</span>
+    <h3>WhatsApp</h3>
+    <p>Chat instantly on WhatsApp</p>
+
+    <button onclick="openWhatsApp()" style="margin-top:10px;padding:10px;background:#25D366;color:#fff;border:none;border-radius:8px;">
+      Chat Now
+    </button>
+  </div>
+
+</div>
+
 </section>
-  <!-- TRUST STRIP -->
-  <section class="trust">
-    <div class="trust-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="trust-info">
-      <span>📍 Hari Nagar, Lucknow</span>
-      <span>📞 9277405966</span>
-    </div>
-  </section>
-  <!-- CONTACT (ANCHOR TARGET) -->
-  <section id="contact">
-    <!-- future content -->
-  </section>
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>हर कदम पर आपके, अपनों जैसे — एक सच्चा साथी।</p>
-    <small>�� 2026 Rahi • Made for Local India 🇮🇳</small>
-  </footer>
-  <script src="Script.js"></script>
+
+<footer>
+  <p>हर कदम पर आपके, अपनों जैसे — एक सच्चा साथी।</p>
+</footer>
+
+<script>
+function openLocation() {
+  window.open("https://www.google.com/maps?q=Hari+Om+Nagar+Krishna+Nagar+Lucknow", "_blank");
+}
+
+function openWhatsApp() {
+  window.open("https://wa.me/919277405966", "_blank");
+}
+
+function callNow() {
+  window.location.href = "tel:9277405966";
+}
+</script>
+
 </body>
 </html>
